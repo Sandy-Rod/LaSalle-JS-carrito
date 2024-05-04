@@ -17,9 +17,9 @@ function displayProducts(products) {
 
     let hbTemplate = Handlebars.compile(item.outerHTML);
     let output = hbTemplate(product)
-    item.outerHTML = output
 
     target.appendChild(item)
+    item.outerHTML = output
     console.log(item)
   }
 }

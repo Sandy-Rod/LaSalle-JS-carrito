@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="./js/main.mjs"></script>
+    <style>
+      .product-item{
+        border-radius: 2em;
+        border:solid 2px black;
+        list-style: none;
+        padding: 1em;
+      }
+      .product-grid {
+        display:grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+      }
+    </style>
     <title>Carrito</title>
   </head>
   <body>
     <header>
       <h1>Productos</h1>
+      <form id="brand-filters">
+
+      </form>
     </header>
-    <main></main>
+    <main>
+      <template id="product-item-template">
+        <li class="product-item">
+          <!--Definition list-->
+          <dl>
+            <!--Definition term-->
+            <dt>Brand</dt>
+            <!--Definition description-->
+            <dd data-field="brand"></dd>
+            <dt>Model</dt>
+            <dd data-field="model"></dd>
+            <dt>Variant</dt>
+            <dd data-field="variant"></dd>
+            <dt>Price</dt>
+            <dd data-field="price"></dd>
+          </dl>
+        </li>
+      </template>
+      <ul id="product-list" class="product-grid">
+
+      </ul>
+    </main>
     <aside></aside>
     <footer></footer>
   </body>

@@ -5,13 +5,15 @@ import { all } from "./catalogo.mjs";
 const template = document.querySelector("#product-item-template")
 const target = document.querySelector("#product-list")
 
-function displayProducts() {
-  for (let product of all()) {
+function displayProducts(products) {
+  target.innerHTML = ""
+  for (let product of products) {
     console.log(product)
 
     // Crear un elemento nuevo li que es una copia de los elementos que son necesarios
     // y meterlo dentro de target
-    let item = document.importNode(template.content, true)
+    console.log(template.content.firstElementChild)
+    let item = template.content.firstElementChild.cloneNode(true)
 
 
     // selecccion de todos los atributos data-field
@@ -30,6 +32,8 @@ function displayProducts() {
     }
 
     target.appendChild(item)
+    console.log(item)
+    item.setAttribute("id", product.id)
   }
 }
 

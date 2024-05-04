@@ -15,9 +15,9 @@ function displayProducts(products) {
     console.log(template.content.firstElementChild)
     let item = template.content.firstElementChild.cloneNode(true)
 
-    let hbTemplate = Handlebars.compile(item.innerHTML);
+    let hbTemplate = Handlebars.compile(item.outerHTML);
     let output = hbTemplate(product)
-    item.innerHTML = hbTemplate
+    item.outerHTML = output
 
     target.appendChild(item)
     console.log(item)

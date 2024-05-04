@@ -1,7 +1,34 @@
-const catalog = [];
+import data from "./data.mjs"
+
+class Product {
+  constructor(data) {
+    this.brand = data.brand
+    this.model = data.model
+    this.variant = data.variant
+    this.price = data.price
+    this.id = data.id
+  }
+  get pictureURL() {
+    return `./img/${this.id}.jpeg`
+  }
+}
+
+const catalog = data.map(function (item) {
+  return new Product(item)
+});
 
 function all() {
   return [...catalog];
+}
+
+function filterByBrands(brands) {
+  if (brands.length === 0) {
+    return all()
+  }
+  return catalog.filter(function (product) {
+    console.log(product, brands, brands.includes(product.brand))
+    return brands.includes(product.brand)
+  })
 }
 
 function brands() {
@@ -12,32 +39,4 @@ function brands() {
 }
 
 export { all, brands };
-
-catalog.push({
-  brand: "Apple",
-  model: "iPhone 15",
-  variant: "Pro Max",
-  price: 1200,
-  id: "apple-iphone-15-pro-max"
-});
-catalog.push({
-  brand: "Apple",
-  model: "iPhone 15",
-  variant: "Pro",
-  price: 983.5,
-  id: "apple-iphone-15-pro"
-});
-catalog.push({
-  brand: "Huawei",
-  model: "Pura 70",
-  variant: "Pro Plus",
-  price: 789.67,
-  id: "huawei-pura70-pro-plus"
-});
-catalog.push({
-  brand: "Samsung",
-  model: "Galaxy",
-  variant: "m55",
-  price: 350.45,
-  id: "samsung-galaxy-m55"
-});
+export { filterByBrands }

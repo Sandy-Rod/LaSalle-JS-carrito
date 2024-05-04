@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="./js/main.mjs"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js" integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
       .product-item{
         border-radius: 2em;
@@ -28,22 +29,21 @@
     </header>
     <main>
       <template id="product-item-template">
-        <li class="product-item">
+        <li class="product-item" id="{{id}}">
           <!--Definition list-->
           <dl>
             <!--Definition term-->
             <dt>Brand</dt>
             <!--Definition description-->
-            <dd data-field="brand"></dd>
+            <dd>{{brand}}</dd>
             <dt>Model</dt>
-            <dd data-field="model"></dd>
+            <dd>{{model}}</dd>
             <dt>Variant</dt>
-            <dd data-field="variant"></dd>
+            <dd>{{variant}}</dd>
             <dt>Price</dt>
-            <dd data-field="price"></dd>
+            <dd>{{price}}</dd>
           </dl>
-          <img src="./img/apple-iphone-15-pro-max.jpeg"
-          data-field="pictureURL" data-template-target="src">
+          <img src="{{pictureURL}}">
 
           <button>Buy</button>
         </li>

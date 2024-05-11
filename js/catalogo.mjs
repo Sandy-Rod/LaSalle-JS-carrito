@@ -1,5 +1,5 @@
 import data from "./data.mjs"
-
+/** Test */
 class Product {
   constructor(data) {
     this.brand = data.brand

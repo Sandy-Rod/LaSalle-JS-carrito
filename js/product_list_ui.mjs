@@ -1,7 +1,5 @@
 // Product list User Interface
 
-import { all } from "./catalogo.mjs";
-
 const template = document.querySelector("#product-item-template")
 const target = document.querySelector("#product-list")
 

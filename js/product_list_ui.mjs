@@ -16,7 +16,7 @@ function displayProducts(products) {
     let item = template.content.firstElementChild.cloneNode(true)
 
     let hbTemplate = Handlebars.compile(item.outerHTML);
-    let output = hbTemplate(product)
+    let output = hbTemplate(product, {allowProtoPropertiesByDefault: true})
 
     target.appendChild(item)
     item.outerHTML = output

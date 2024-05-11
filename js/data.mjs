@@ -23,3 +23,9 @@ export default [{
   price: 350.45,
   id: "samsung-galaxy-m55"
 }]
+
+
+export const csv = `
+Apple,iPhone 15,Pro Max,1200,apple-iphone-15-pro-max
+Apple,iPhone 15,Pro Max,1200,apple-iphone-15-pro-max
+`

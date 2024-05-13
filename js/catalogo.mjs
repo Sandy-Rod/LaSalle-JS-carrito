@@ -1,5 +1,5 @@
 import data from "./data.mjs"
-/** Test */
+
 class Product {
   constructor(data) {
     this.brand = data.brand
@@ -31,6 +31,11 @@ function filterByBrands(brands) {
   })
 }
 
+
+
+
+
+
 function brands() {
   let allBrands = catalog.map((item) => item.brand);
   let uniqueBrands = [...new Set(allBrands)];
@@ -40,3 +45,6 @@ function brands() {
 
 export { all, brands };
 export { filterByBrands }
+
+
+

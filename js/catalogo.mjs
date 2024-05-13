@@ -1,5 +1,5 @@
 import data from "./data.mjs"
-
+/** subida puush */
 class Product {
   constructor(data) {
     this.brand = data.brand

@@ -1,7 +1,5 @@
 // Product list User Interface
 
-import { all } from "./catalogo.mjs";
-
 const template = document.querySelector("#product-item-template")
 const target = document.querySelector("#product-list")
 
@@ -16,7 +14,7 @@ function displayProducts(products) {
     let item = template.content.firstElementChild.cloneNode(true)
 
     let hbTemplate = Handlebars.compile(item.outerHTML);
-    let output = hbTemplate(product)
+    let output = hbTemplate(product, {allowProtoPropertiesByDefault: true})
 
     target.appendChild(item)
     item.outerHTML = output

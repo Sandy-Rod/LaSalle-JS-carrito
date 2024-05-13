@@ -1,5 +1,5 @@
 import data from "./data.mjs"
-/** subida puush */
+
 class Product {
   constructor(data) {
     this.brand = data.brand
@@ -13,38 +13,49 @@ class Product {
   }
 }
 
-const catalog = data.map(function (item) {
-  return new Product(item)
-});
+const conversorDeObjectoPlanoAProduct = item => new Product(item)
+const catalog = data.map(conversorDeObjectoPlanoAProduct)
+
 
 function all() {
   return [...catalog];
 }
 
+filterByBrands([])
+
 function filterByBrands(brands) {
   if (brands.length === 0) {
     return all()
+  } else {
+    function brandFilter(product) {
+      return brands.includes(product.brand)
+    }
+
+    return catalog.filter(brandFilter)
   }
-  return catalog.filter(function (product) {
-    console.log(product, brands, brands.includes(product.brand))
-    return brands.includes(product.brand)
-  })
 }
 
+function filterByPrice(min, max) {
+  function priceRangeFilter(product) {
+    return product.price >= min && product.price <= max
+  }
 
+  return catalog.filter(priceRangeFilter)
+}
 
-
-
+function filterByTextInBrandModelVariant(query) {
+  let tokens = query.split().map(str => str.toLowerCase())
+  function textFilter(product) {
+    return tokens.every(token => product.brand.toLowerCase().includes(token) || product.model.toLowerCase().includes(token))
+  }
+}
 
 function brands() {
   let allBrands = catalog.map((item) => item.brand);
-  let uniqueBrands = [...new Set(allBrands)];
-  uniqueBrands.sort();
-  return uniqueBrands;
+  let uniqueBrands = new Set(allBrands)
+  let arrayOfUniqueBrands = [...uniqueBrands];
+  arrayOfUniqueBrands.sort();
+  return arrayOfUniqueBrands;
 }
 
-export { all, brands };
-export { filterByBrands }
-
-
-
+export { all, brands, filterByBrands }

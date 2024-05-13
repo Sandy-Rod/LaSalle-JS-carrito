@@ -4,11 +4,12 @@ const form = document.querySelector("#brand-filters")
 
 function createCheckBoxes() {
   for (let brand of brands()) {
-    // console.log(brand)
-    let label = document.createElement("label")
-    label.innerHTML = `<input type="checkbox" name="brand" value="${brand}">
-                        ${brand}`
-    form.appendChild(label)
+    form.insertAdjacentHTML('beforeend',  `
+      <label>
+        <input type="checkbox" name="brand" value="${brand}">
+        ${brand}
+      </label>
+    `)
   }
 
 }
